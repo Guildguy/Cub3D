@@ -133,7 +133,6 @@ int		key_handler(int keysym, t_cub *cub);
 void	put_pxl_in_img(t_img *img, int x, int y, int color);
 
 char	**create_hard_map(void);
-//void	free_hard_map(char **map);
 
 int		create_rgb(int t, int r, int g, int b);
 void	draw_background(t_cub *cub);
