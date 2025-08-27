@@ -1,5 +1,13 @@
 #include "cub3d.h"
 
+void	put_pxl_in_img(t_img *img, int x, int y, int color)
+{
+	char	*pxl_address;
+
+	pxl_address = img->pxl_ptr + (y * img->l_len + x * (img->bits_per_pxl /8));
+	*(unsigned int *)pxl_address = color;
+}
+
 static t_wall	calculate_wall_dimension(t_ray *ray_result)
 {
 	t_wall	wall;
