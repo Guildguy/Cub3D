@@ -14,3 +14,11 @@ static void	rotate_player(t_cub *cub, double direction)
 	cub->player.cam_plane_x = cub->player.cam_plane_x * cos(angle) - cub->player.cam_plane_y * sin(angle);
 	cub->player.cam_plane_y = old_planeX * sin(angle) + cub->player.cam_plane_y * cos(angle);
 }
+
+void	rotation_handler(int keysym, t_cub *cub)
+{
+	if (keysym == RIGHT)
+		rotate_player(cub, 1.0);
+	else if (keysym == LEFT)
+		rotate_player(cub, -1.0);
+}
