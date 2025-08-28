@@ -17,8 +17,8 @@ static void	rotate_player(t_cub *cub, double direction)
 
 void	rotation_handler(int keysym, t_cub *cub)
 {
-	if (keysym == RIGHT)
+	if (keysym == XK_Right)
 		rotate_player(cub, 1.0);
-	else if (keysym == LEFT)
+	else if (keysym == XK_Left)
 		rotate_player(cub, -1.0);
 }

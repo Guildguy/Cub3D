@@ -29,16 +29,12 @@
 # define WIDTH 1000
 # define HEIGHT 1000
 
-#define HIT 1
-#define NO_HIT 0
-#define NO_SO_WALL 1
-#define ES_WE_WALL 0
+# define HIT 1
+# define NO_HIT 0
+# define NO_SO_WALL 1
+# define ES_WE_WALL 0
 
-#define R_SPEED 0.1
-
-#define ESC XK_Escape
-#define LEFT  XK_Left
-#define RIGHT XK_Right
+# define R_SPEED 0.1
 
 /* Structs */
 typedef struct s_img
@@ -97,7 +93,6 @@ typedef struct s_ray
 	double	side_dst_y;
 	double	side_dst_x;
 }				t_ray;
-
 
 typedef struct s_cub
 {
