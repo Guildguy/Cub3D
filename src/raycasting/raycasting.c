@@ -2,6 +2,8 @@
 
 static void	init_ray(t_cub *cub, t_ray *ray, double ray_dir_y, double ray_dir_x)
 {
+	ray->ray_dir_y = ray_dir_y;
+	ray->ray_dir_x = ray_dir_x;
 	ray->map_y = (int)cub->player.pos_y;
 	ray->map_x = (int)cub->player.pos_x;
 	if (ray_dir_x == 0)
