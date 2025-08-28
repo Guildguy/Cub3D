@@ -27,7 +27,7 @@ void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray_result)
 	vertical_slice = wall.draw_start;
 	while (vertical_slice < wall.draw_end)
 	{
-		if (ray_result->side == NORTH_WALL)
+		if (ray_result->side == HORIZONTAL_WALL)
 			put_pxl_in_img(&cub->img, horizontal_slice, \
 			vertical_slice, create_rgb(0, 0, 176, 16));
 		else
