@@ -57,7 +57,7 @@ t_ray	digital_differential_analizer(t_cub *cub, double ray_dir_y, double ray_dir
 		{
 			ray.side_dst_y += ray.delta_dst_y;
 			ray.map_y += ray.step_y;
-			ray.side = NO_SO_wALL;
+			ray.side = NO_SO_WALL;
 		}
 		if (cub->map[ray.map_y][ray.map_x] == '1')
 			ray.hit = HIT;

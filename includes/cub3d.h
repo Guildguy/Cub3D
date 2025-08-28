@@ -31,7 +31,7 @@
 
 #define HIT 1
 #define NO_HIT 0
-#define NO_SO_wALL 1
+#define NO_SO_WALL 1
 #define ES_WE_WALL 0
 
 /* Structs */
