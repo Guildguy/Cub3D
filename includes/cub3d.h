@@ -79,6 +79,8 @@ typedef struct s_ray
 	int		map_x;
 	int		step_y;
 	int		step_x;
+	double	ray_dir_y;
+	double	ray_dir_x;
 	double	delta_dst_y;
 	double	delta_dst_x;
 	double	side_dst_y;
@@ -135,7 +137,7 @@ void	init_player(t_cub *cub);
 
 void	raycasting(t_cub *cub, int x);
 
-void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray_result);
+void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray);
 void	free_map(char **map);
 int		valid_format(char *str);
 
