@@ -1,13 +1,5 @@
 #include "cub3d.h"
 
-void	put_pxl_in_img(t_img *img, int x, int y, int color)
-{
-	char	*pxl_address;
-
-	pxl_address = img->pxl_ptr + (y * img->l_len + x * (img->bits_per_pxl /8));
-	*(unsigned int *)pxl_address = color;
-}
-
 static t_wall	calculate_wall_dimension(t_ray *ray_result)
 {
 	t_wall	wall;
@@ -35,10 +27,12 @@ void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray_result)
 	vertical_slice = wall.draw_start;
 	while (vertical_slice < wall.draw_end)
 	{
-		if (ray_result->side == 1) //horizontal wall
-			put_pxl_in_img(&cub->img, horizontal_slice, vertical_slice, create_rgb(0, 0, 176, 16));
-		else //vertical wall
-			put_pxl_in_img(&cub->img, horizontal_slice, vertical_slice, create_rgb(0, 0, 255, 0));
+		if (ray_result->side == NORTH_WALL)
+			put_pxl_in_img(&cub->img, horizontal_slice, \
+			vertical_slice, create_rgb(0, 0, 176, 16));
+		else
+			put_pxl_in_img(&cub->img, horizontal_slice, \
+			vertical_slice, create_rgb(0, 0, 255, 0));
 		vertical_slice++;
 	}
 }
