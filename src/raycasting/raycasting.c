@@ -44,23 +44,23 @@ t_ray	digital_differential_analizer(t_cub *cub, double ray_dir_y, double ray_dir
 
 	init_ray(cub, &ray, ray_dir_y, ray_dir_x);
 	get_left_or_right_side(cub, &ray, ray_dir_y, ray_dir_x);
-	ray.hit = 0;
-	while (ray.hit == 0)
+	ray.hit = NO_HIT;
+	while (ray.hit == NO_HIT)
 	{
 		if (ray.side_dst_x < ray.side_dst_y)
 		{
 			ray.side_dst_x += ray.delta_dst_x;
 			ray.map_x += ray.step_x;
-			ray.side = 0;
+			ray.side = ES_WE_WALL;
 		}
 		else
 		{
 			ray.side_dst_y += ray.delta_dst_y;
 			ray.map_y += ray.step_y;
-			ray.side = 1;
+			ray.side = NO_SO_wALL;
 		}
 		if (cub->map[ray.map_y][ray.map_x] == '1')
-			ray.hit = 1;
+			ray.hit = HIT;
 	}
 	return (ray);
 }
