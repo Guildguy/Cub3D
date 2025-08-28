@@ -35,6 +35,7 @@
 # define ES_WE_WALL 0
 
 # define R_SPEED 0.1
+# define M_SPEED 0.15
 
 /* Structs */
 typedef struct s_img
@@ -128,6 +129,7 @@ int		error_handler(t_cub *cub, char *error_message);
 void	cleanup(t_cub *cub);
 
 void	rotation_handler(int keysym, t_cub *cub);
+void	movement_handler(int keysym, t_cub *cub);
 int		key_handler(int keysym, t_cub *cub);
 
 void	put_pxl_in_img(t_img *img, int x, int y, int color);
