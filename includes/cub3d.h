@@ -131,6 +131,8 @@ void	init_data(t_cub *cub);
 int		close_handler(t_cub *cub);
 int		error_handler(t_cub *cub, char *error_message);
 void	cleanup(t_cub *cub);
+
+void	rotation_handler(int keysym, t_cub *cub);
 int		key_handler(int keysym, t_cub *cub);
 
 void	put_pxl_in_img(t_img *img, int x, int y, int color);
