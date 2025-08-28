@@ -18,21 +18,31 @@ static t_wall	calculate_wall_dimension(t_ray *ray_result)
 	return (wall);
 }
 
-void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray_result)
+void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray)
 {
 	t_wall	wall;
 	int		vertical_slice;
+	int		color;
 
-	wall = calculate_wall_dimension(ray_result);
+	wall = calculate_wall_dimension(ray);
+	if (ray->side == VERTICAL_WALL)
+	{
+		if (ray->ray_dir_x > WEST_WALL)
+			color = create_rgb(0, 144, 238, 144);
+		else
+			color = create_rgb(0, 0, 255, 0);
+	}
+	else
+	{
+		if (ray->ray_dir_y > NORTH_WALL)
+			color = create_rgb(0, 153, 51, 153);
+		else
+			color = create_rgb(0, 255, 0, 0);
+	}
 	vertical_slice = wall.draw_start;
 	while (vertical_slice < wall.draw_end)
 	{
-		if (ray_result->side == HORIZONTAL_WALL)
-			put_pxl_in_img(&cub->img, horizontal_slice, \
-			vertical_slice, create_rgb(0, 0, 176, 16));
-		else
-			put_pxl_in_img(&cub->img, horizontal_slice, \
-			vertical_slice, create_rgb(0, 0, 255, 0));
+		put_pxl_in_img(&cub->img, horizontal_slice, vertical_slice, color);
 		vertical_slice++;
 	}
 }
