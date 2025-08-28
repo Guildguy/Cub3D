@@ -24,7 +24,7 @@ OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 all: $(NAME)
 
 v: all
-	valgrind -q --leak-check=full --show-leak-kinds=all./$(NAME)
+	valgrind -q --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 val: all
 	@/bin/valgrind -q \
