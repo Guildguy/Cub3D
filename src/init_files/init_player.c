@@ -7,7 +7,7 @@ static void	set_player_direction(t_cub *cub, char direction)
 		cub->player.dir_y = -1;
 		cub->player.cam_plane_x = 0.666;
 	}
-	else if(direction == 'S')
+	else if (direction == 'S')
 	{
 		cub->player.dir_y = 1;
 		cub->player.cam_plane_x = -0.666;

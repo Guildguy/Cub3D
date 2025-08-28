@@ -8,4 +8,3 @@ int	key_handler(int keysym, t_cub *cub)
 		rotation_handler(keysym, cub);
 	return (0);
 }
-
