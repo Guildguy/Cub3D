@@ -34,6 +34,12 @@
 #define NO_SO_WALL 1
 #define ES_WE_WALL 0
 
+#define R_SPEED 0.1
+
+#define ESC XK_Escape
+#define LEFT  XK_Left
+#define RIGHT XK_Right
+
 /* Structs */
 typedef struct s_img
 {
@@ -54,18 +60,11 @@ typedef struct s_map
 	int		map_height;
 }				t_map;
 
-typedef struct s_pen_pos
-{
-	int	x;
-	int	y;
-}				t_pen_pos;
-
-typedef struct s_sprite_img
+typedef struct s_ceiling_ground
 {
 	int	floor_color;
 	int	ceilling_color;
-	int	wall_color;
-}				t_sprite_img;
+}				t_ceiling_ground;
 
 typedef struct s_wall
 {
@@ -102,14 +101,13 @@ typedef struct s_ray
 
 typedef struct s_cub
 {
-	char			*name;
-	void			*mlx_connection;
-	void			*mlx_window;
-	t_img			img;
-	t_pen_pos		axys;
-	t_sprite_img	sprite;
-	t_player		player;
-	char			**map;
+	char				*name;
+	void				*mlx_connection;
+	void				*mlx_window;
+	t_img				img;
+	t_ceiling_ground	sprite;
+	t_player			player;
+	char				**map;
 }				t_cub;
 
 /*typedef struct s_cube
