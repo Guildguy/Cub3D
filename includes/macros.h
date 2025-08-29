@@ -18,7 +18,7 @@
 /*     AXYS    */
 # define AXYS_ORIGIN 0
 
-/*   POSITION   */
+/*  POSITION   */
 # define LEFT_STEP -1
 # define RIGHT_STEP 1
 # define UP_STEP -1

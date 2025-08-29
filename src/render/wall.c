@@ -4,7 +4,7 @@ static t_wall	calculate_wall_dimension(t_ray *ray_result)
 {
 	t_wall	wall;
 
-	if (ray_result->side == 0)
+	if (ray_result->side == VERTICAL_WALL)
 		wall.wall_dist = (ray_result->side_dst_x - ray_result->delta_dst_x);
 	else
 		wall.wall_dist = (ray_result->side_dst_y - ray_result->delta_dst_y);
