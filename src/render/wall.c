@@ -27,14 +27,14 @@ void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray)
 	wall = calculate_wall_dimension(ray);
 	if (ray->side == VERTICAL_WALL)
 	{
-		if (ray->ray_dir_x > WEST_WALL)
+		if (ray->ray_dir_x > AXYS_ORIGIN)
 			color = create_rgb(0, 144, 238, 144);
 		else
 			color = create_rgb(0, 0, 255, 0);
 	}
 	else
 	{
-		if (ray->ray_dir_y > NORTH_WALL)
+		if (ray->ray_dir_y > AXYS_ORIGIN)
 			color = create_rgb(0, 153, 51, 153);
 		else
 			color = create_rgb(0, 255, 0, 0);

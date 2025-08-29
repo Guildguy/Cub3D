@@ -1,18 +1,30 @@
 #ifndef MACROS_H
 # define MACROS_H
 
+/*    SCREEN    */
 # define WIDTH 1000
 # define HEIGHT 1000
 
+/*  COLLISION   */
 # define HIT 1
 # define NO_HIT 0
-# define NO_SO_WALL 1
-# define ES_WE_WALL 0
+
+/*     WALL     */
 # define WALL 49
 # define VERTICAL_WALL 0
-# define WEST_WALL 0
-# define NORTH_WALL 0
+# define NO_SO_WALL 1
+# define ES_WE_WALL 0
 
+/*     AXYS    */
+# define AXYS_ORIGIN 0
+
+/*   POSITION   */
+# define LEFT_STEP -1
+# define RIGHT_STEP 1
+# define UP_STEP -1
+# define DOWN_STEP 1
+
+/*    MOVE    */
 # define R_SPEED 0.1
 # define M_SPEED 0.1
 

@@ -16,28 +16,28 @@ static void	init_ray(t_cub *cub, t_ray *ray, double ray_dir_y, double ray_dir_x)
 		ray->delta_dst_y = fabs(1 / ray_dir_y);
 }
 
-static void	get_left_or_right_side(t_cub *cub, t_ray *ray, \
+static void	calculate_step_n_dist(t_cub *cub, t_ray *ray, \
 			double ray_dir_y, double ray_dir_x)
 {
-	if (ray_dir_x < 0)
+	if (ray_dir_x < AXYS_ORIGIN)
 	{
-		ray->step_x = -1;
+		ray->step_x = LEFT_STEP;
 		ray->side_dst_x = (cub->player.pos_x - ray->map_x) * ray->delta_dst_x;
 	}
 	else
 	{
-		ray->step_x = 1;
+		ray->step_x = RIGHT_STEP;
 		ray->side_dst_x = (ray->map_x + 1.0 - cub->player.pos_x) \
 		* ray->delta_dst_x;
 	}
-	if (ray_dir_y < 0)
+	if (ray_dir_y < AXYS_ORIGIN)
 	{
-		ray->step_y = -1;
+		ray->step_y = UP_STEP;
 		ray->side_dst_y = (cub->player.pos_y - ray->map_y) * ray->delta_dst_y;
 	}
 	else
 	{
-		ray->step_y = 1;
+		ray->step_y = DOWN_STEP;
 		ray->side_dst_y = (ray->map_y + 1.0 - cub->player.pos_y) \
 		* ray->delta_dst_y;
 	}
@@ -49,7 +49,7 @@ t_ray	digital_differential_analizer(t_cub *cub, double ray_dir_y, \
 	t_ray	ray;
 
 	init_ray(cub, &ray, ray_dir_y, ray_dir_x);
-	get_left_or_right_side(cub, &ray, ray_dir_y, ray_dir_x);
+	calculate_step_n_dist(cub, &ray, ray_dir_y, ray_dir_x);
 	ray.hit = NO_HIT;
 	while (ray.hit == NO_HIT)
 	{
@@ -65,7 +65,7 @@ t_ray	digital_differential_analizer(t_cub *cub, double ray_dir_y, \
 			ray.map_y += ray.step_y;
 			ray.side = NO_SO_WALL;
 		}
-		if (cub->map[ray.map_y][ray.map_x] == '1')
+		if (cub->map[ray.map_y][ray.map_x] == WALL)
 			ray.hit = HIT;
 	}
 	return (ray);
