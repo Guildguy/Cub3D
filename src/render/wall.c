@@ -30,14 +30,14 @@ void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray)
 		if (ray->ray_dir_x > AXYS_ORIGIN)
 			color = create_rgb(0, 144, 238, 144);
 		else
-			color = create_rgb(0, 0, 255, 0);
+			color = create_rgb(0, 46, 60, 28);
 	}
 	else
 	{
 		if (ray->ray_dir_y > AXYS_ORIGIN)
-			color = create_rgb(0, 153, 51, 153);
+			color = create_rgb(0, 46, 27, 87);
 		else
-			color = create_rgb(0, 255, 0, 0);
+			color = create_rgb(0, 138, 3, 2);
 	}
 	vertical_slice = wall.draw_start;
 	while (vertical_slice < wall.draw_end)

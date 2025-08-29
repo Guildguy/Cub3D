@@ -54,7 +54,7 @@ void	init_data(t_cub *cub)
 {
 	ft_bzero(cub, sizeof(t_cub));
 	cub->map = create_hard_map();
-	cub->sprite.ceilling_color = create_rgb(0, 135, 206, 235);
+	cub->sprite.ceilling_color = create_rgb(0, 187, 243, 249);
 	cub->sprite.floor_color = create_rgb(0, 108, 121, 116);
 	init_player(cub);
 }
