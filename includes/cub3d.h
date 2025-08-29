@@ -132,8 +132,6 @@ void	draw_background(t_cub *cub);
 int		render(t_cub *cub);
 int		valid_format(char *str);
 
-void	init_player(t_cub *cub);
-
 void	raycasting(t_cub *cub, int x);
 
 void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray_result);
