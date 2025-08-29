@@ -21,9 +21,9 @@ void	draw_background(t_cub *cub)
 		while (x < WIDTH)
 		{
 			if (y < HEIGHT / 2)
-				put_pxl_in_img(&cub->img, x, y, cub->sprite.ceilling_color);
+				put_pxl_in_img(&cub->img, x, y, cub->map_set.ceiling_color);
 			else
-				put_pxl_in_img(&cub->img, x, y, cub->sprite.floor_color);
+				put_pxl_in_img(&cub->img, x, y, cub->map_set.floor_color);
 			x++;
 		}
 		y++;

@@ -12,19 +12,19 @@
 
 #include "cub3d.h"
 
-void	free_map(char **map)
+void	free_array(char **array)
 {
 	int	i;
 
-	if (!map)
+	if (!array)
 		return ;
 	i = 0;
-	while (map[i])
+	while (array[i])
 	{
-		free(map[i]);
+		free(array[i]);
 		i++;
 	}
-	free(map);
+	free(array);
 }
 
 void	cleanup(t_cub *cub)
@@ -39,7 +39,7 @@ void	cleanup(t_cub *cub)
 		free(cub->mlx_connection);
 	}
 	if (cub->map)
-		free_map(cub->map);
+		free_array(cub->map);
 }
 
 int	error_handler(t_cub *cub, char *error_message)

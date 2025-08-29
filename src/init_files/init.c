@@ -49,12 +49,3 @@ void	cub_init(t_cub *cub)
 		err_exit(cub);
 	events_init(cub);
 }
-
-void	init_data(t_cub *cub)
-{
-	ft_bzero(cub, sizeof(t_cub));
-	cub->map = create_hard_map();
-	cub->sprite.ceilling_color = create_rgb(0, 187, 243, 249);
-	cub->sprite.floor_color = create_rgb(0, 108, 121, 116);
-	init_player(cub);
-}

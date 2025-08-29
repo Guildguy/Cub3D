@@ -1,9 +1,16 @@
-//1 = parede
-//0 = chão
-//N,S,E,W = posição do personagem 
+NO ./path_to_the_north_texture
+SO ./path_to_the_south_texture
+WE ./path_to_the_west_texture
+EA ./path_to_the_east_texture
 
-111111
-100101
-101001
-1100N1
-111111
+F 220,100,a
+C 0,0,255
+
+11111111111111111
+10000000000000001
+10100000100000001
+10100001110000001
+10100000100000001
+10100000000000001
+1010N000000000101
+11111111111111111
