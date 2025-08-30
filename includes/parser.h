@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:24:05 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/29 23:24:07 by fleite-j         ###   ########.fr       */
+/*   Updated: 2025/08/30 12:58:10 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,12 @@ typedef struct s_cub	t_cub;
 void	load_texture(t_cub *cub, t_img *texture_img, char *path);
 
 // src/parser/
+
+// src/parser/config_utils.c
+int		is_digit_string(char *str);
 // src/parser/config_parser.c
 void	parse_texture(char *line, t_cub *cub);
+void	trim_trailing_whitespace(char *str);
 void	parse_color(char *line, t_cub *cub);
 int		all_configs_set(t_cub *cub);
 // src/parser/main_parser.c
