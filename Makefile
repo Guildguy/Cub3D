@@ -17,7 +17,6 @@ MLX = $(MLX_DIR)/libmlx.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
 # Sources and Objects
-#SRCS = $(shell find $(SRC_DIR) -type f -name "*.c")
 SRCS =  src/cleanup/cleanup.c \
 		src/events/events.c src/events/movement_event.c src/events/rotate_event.c \
 		src/init_files/init_player.c src/init_files/init.c \
