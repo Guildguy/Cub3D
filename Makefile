@@ -17,7 +17,18 @@ MLX = $(MLX_DIR)/libmlx.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
 # Sources and Objects
-SRCS = $(shell find $(SRC_DIR) -type f -name "*.c")
+#SRCS = $(shell find $(SRC_DIR) -type f -name "*.c")
+SRCS =  src/cleanup/cleanup.c \
+		src/events/events.c src/events/movement_event.c src/events/rotate_event.c \
+		src/init_files/init_player.c src/init_files/init.c \
+		src/loader/load_images.c \
+		src/parser/config_parser.c src/parser/main_parser.c src/parser/map_list_utils.c \
+		src/parser/map_parser.c src/parser/map_validator_utils.c src/parser/map_validator.c \
+		src/raycasting/raycasting.c \
+		src/render/color.c src/render/render.c src/render/wall.c \
+		src/validator/valid_format.c \
+		src/main.c
+
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # Default target
