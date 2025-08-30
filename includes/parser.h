@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/29 23:24:05 by fleite-j          #+#    #+#             */
+/*   Updated: 2025/08/29 23:24:07 by fleite-j         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSER_H
 # define PARSER_H
 
@@ -34,7 +46,6 @@ typedef struct s_line
 typedef struct s_cub	t_cub;
 
 /* Functions */
-
 // src/loader/
 // src/loader/load_images.c
 void	load_texture(t_cub *cub, t_img *texture_img, char *path);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/29 23:17:36 by fleite-j          #+#    #+#             */
+/*   Updated: 2025/08/29 23:17:38 by fleite-j         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	put_pxl_in_img(t_img *img, int x, int y, int color)
@@ -42,6 +54,6 @@ int	render(t_cub *cub)
 		x++;
 	}
 	mlx_put_image_to_window(cub->mlx_connection, cub->mlx_window, \
-							cub->img.img_ptr, 0, 0); //exibe a imagem na tela
+							cub->img.img_ptr, 0, 0);
 	return (0);
 }
