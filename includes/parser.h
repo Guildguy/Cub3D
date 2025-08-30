@@ -33,6 +33,7 @@ typedef struct s_line
 
 typedef struct s_cub	t_cub;
 
+/* Functions */
 // src/loader/
 // src/loader/load_images.c
 void	load_texture(t_cub *cub, t_img *texture_img, char *path);
@@ -59,6 +60,7 @@ int		has_only_valid_characters(char **map);
 void	player_coordinates(char **map, t_cub *cub);
 // src/parser/map_validator.c
 int		is_map_closed(t_cub *cub);
+
 // src/validator/
 // src/validator/valid_format.c
 int		valid_format(char *str);
