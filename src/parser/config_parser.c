@@ -31,7 +31,7 @@ static int	validate_rgb_strings(char **s_rgb)
 	return (1);
 }
 
-int	get_rgb_color(char *rgb_string, t_cub *cub)
+static int	get_rgb_color(char *rgb_string)
 {
 	char	**s_rgb;
 	int		rgb[3];
@@ -66,7 +66,7 @@ int	parse_color(char *line, t_cub *cub)
 	i = 2;
 	while (ft_isspace(line[i]))
 		i++;
-	color = get_rgb_color(&line[i], cub);
+	color = get_rgb_color(&line[i]);
 	if (color == -1)
 		return (0);
 	if (!ft_strncmp(line, "F ", 2))
@@ -84,7 +84,7 @@ int	parse_color(char *line, t_cub *cub)
 	return (1);
 }
 
-static int	set_texture_path(char **path_to_set, char *path, t_cub *cub)
+static int	set_texture_path(char **path_to_set, char *path)
 {
 	if (*path_to_set != NULL)
 		return (0);
@@ -102,12 +102,12 @@ int	parse_texture(char *line, t_cub *cub)
 	while (ft_isspace(line[i]))
 		i++;
 	if (!ft_strncmp(line, "NO ", 3))
-		return (set_texture_path(&cub->map_set.no_path, &line[i], cub));
+		return (set_texture_path(&cub->map_set.no_path, &line[i]));
 	else if (!ft_strncmp(line, "SO ", 3))
-		return (set_texture_path(&cub->map_set.so_path, &line[i], cub));
+		return (set_texture_path(&cub->map_set.so_path, &line[i]));
 	else if (!ft_strncmp(line, "WE ", 3))
-		return (set_texture_path(&cub->map_set.we_path, &line[i], cub));
+		return (set_texture_path(&cub->map_set.we_path, &line[i]));
 	else if (!ft_strncmp(line, "EA ", 3))
-		return (set_texture_path(&cub->map_set.ea_path, &line[i], cub));
+		return (set_texture_path(&cub->map_set.ea_path, &line[i]));
 	return (1);
 }
