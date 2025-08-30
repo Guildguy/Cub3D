@@ -16,6 +16,9 @@
 /*    SCREEN    */
 # define WIDTH 1000
 # define HEIGHT 1000
+// FULL SCREEn
+//# define WIDTH 1930
+//# define HEIGHT 1000
 
 /*  COLLISION   */
 # define HIT 1

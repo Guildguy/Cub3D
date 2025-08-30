@@ -17,22 +17,22 @@ static void	set_player_direction(t_cub *cub, char direction)
 	if (direction == 'N')
 	{
 		cub->player.dir_y = -1;
-		cub->player.cam_plane_x = 0.666;
+		cub->player.cam_plane_x = 0.66;
 	}
 	else if (direction == 'S')
 	{
 		cub->player.dir_y = 1;
-		cub->player.cam_plane_x = -0.666;
+		cub->player.cam_plane_x = -0.66;
 	}
 	else if (direction == 'E')
 	{
 		cub->player.dir_x = 1;
-		cub->player.cam_plane_y = 0.666;
+		cub->player.cam_plane_y = 0.66;
 	}
 	else if (direction == 'W')
 	{
 		cub->player.dir_x = -1;
-		cub->player.cam_plane_y = -0.666;
+		cub->player.cam_plane_y = -0.66;
 	}
 }
 
