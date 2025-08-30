@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 11:51:36 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/20 15:30:54 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 16:33:05 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ void	cleanup(t_cub *cub)
 		mlx_destroy_display(cub->mlx_connection);
 		free(cub->mlx_connection);
 	}
+	if (cub->map_set.no_path)
+		free(cub->map_set.no_path);
+	if (cub->map_set.so_path)
+		free(cub->map_set.so_path);
+	if (cub->map_set.we_path)
+		free(cub->map_set.we_path);
+	if (cub->map_set.ea_path)
+		free(cub->map_set.ea_path);
 	if (cub->map)
 		free_array(cub->map);
 }

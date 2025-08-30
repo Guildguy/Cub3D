@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:12:14 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/27 19:11:47 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 16:29:45 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static t_line	*read_map_to_list(char *line, t_cub *cub, int fd)
 	while (1)
 	{
 		temp = new_node(line);
+		free(line);
 		if (!temp)
 		{
-			free(line);
 			free_list(map_list);
 			error_handler(cub, "Error: Malloc failed during map parsing\n");
 		}

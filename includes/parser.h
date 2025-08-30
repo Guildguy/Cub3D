@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:24:05 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/29 23:24:07 by fleite-j         ###   ########.fr       */
+/*   Updated: 2025/08/30 16:17:45 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ void	load_texture(t_cub *cub, t_img *texture_img, char *path);
 void	parse_texture(char *line, t_cub *cub);
 void	parse_color(char *line, t_cub *cub);
 int		all_configs_set(t_cub *cub);
+// src/parser/config_utils.c
+int		is_digit_string(char *str);
+void	trim_trailing_whitespace(char *str);
 // src/parser/main_parser.c
 int		main_parser(char *filename, t_cub *cub);
 // src/parser/map_list_parser.c

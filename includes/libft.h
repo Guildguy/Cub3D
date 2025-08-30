@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:23:25 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/29 23:23:27 by fleite-j         ###   ########.fr       */
+/*   Updated: 2025/08/30 16:19:26 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_isdigit(int c);
 
 #endif
