@@ -34,6 +34,7 @@ typedef struct s_line
 typedef struct s_cub	t_cub;
 
 /* Functions */
+
 // src/loader/
 // src/loader/load_images.c
 void	load_texture(t_cub *cub, t_img *texture_img, char *path);

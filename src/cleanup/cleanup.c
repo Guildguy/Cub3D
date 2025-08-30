@@ -48,9 +48,3 @@ int	error_handler(t_cub *cub, char *error_message)
 	cleanup(cub);
 	exit(EXIT_FAILURE);
 }
-
-int	close_handler(t_cub *cub)
-{	
-	cleanup(cub);
-	exit(EXIT_SUCCESS);
-}

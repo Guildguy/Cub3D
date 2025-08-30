@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-t_line	*read_map_to_list(char *line, t_cub *cub, int fd)
+static t_line	*read_map_to_list(char *line, t_cub *cub, int fd)
 {
 	t_line	*temp;
 	t_line	*map_list;
@@ -35,7 +35,7 @@ t_line	*read_map_to_list(char *line, t_cub *cub, int fd)
 	return (map_list);
 }
 
-char	**convert_list_to_array(t_line *list, t_cub *cub)
+static char	**convert_list_to_array(t_line *list, t_cub *cub)
 {
 	char	**array;
 	int		count;

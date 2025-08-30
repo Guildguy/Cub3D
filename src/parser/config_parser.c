@@ -62,7 +62,7 @@ void	parse_color(char *line, t_cub *cub)
 	}
 }
 
-void	set_texture_path(char **path_to_set, char *path, t_cub *cub)
+static void	set_texture_path(char **path_to_set, char *path, t_cub *cub)
 {
 	if (*path_to_set != NULL)
 		error_handler(cub, "Error: Texture defined multiple times\n");

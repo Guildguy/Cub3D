@@ -18,7 +18,7 @@ MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
 # Sources and Objects
 SRCS =  src/cleanup/cleanup.c \
-		src/events/events.c src/events/movement_event.c src/events/rotate_event.c \
+		src/events/events.c src/events/close_event.c src/events/movement_event.c src/events/rotate_event.c \
 		src/init_files/init_player.c src/init_files/init.c \
 		src/loader/load_images.c \
 		src/parser/config_parser.c src/parser/main_parser.c src/parser/map_list_utils.c \

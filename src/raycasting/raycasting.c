@@ -43,7 +43,7 @@ static void	calculate_step_n_dist(t_cub *cub, t_ray *ray, \
 	}
 }
 
-t_ray	digital_differential_analizer(t_cub *cub, double ray_dir_y, \
+static t_ray	digital_differential_analizer(t_cub *cub, double ray_dir_y, \
 		double ray_dir_x)
 {
 	t_ray	ray;
