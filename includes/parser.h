@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:24:05 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/30 12:58:10 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 14:48:49 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ char	**duplicate_map(char **map);
 int		has_only_valid_characters(char **map);
 void	player_coordinates(char **map, t_cub *cub);
 // src/parser/map_validator.c
-int		is_map_closed(t_cub *cub);
-
+int		is_map_valid(t_cub *cub);
 // src/validator/
 // src/validator/valid_format.c
 int		valid_format(char *str);
