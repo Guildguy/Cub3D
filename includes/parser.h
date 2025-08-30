@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:24:05 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/30 16:17:45 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 17:57:29 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	load_texture(t_cub *cub, t_img *texture_img, char *path);
 
 // src/parser/
 // src/parser/config_parser.c
-void	parse_texture(char *line, t_cub *cub);
-void	parse_color(char *line, t_cub *cub);
+int		parse_texture(char *line, t_cub *cub);
+int		parse_color(char *line, t_cub *cub);
 int		all_configs_set(t_cub *cub);
 // src/parser/config_utils.c
 int		is_digit_string(char *str);
@@ -74,7 +74,7 @@ char	**duplicate_map(char **map);
 int		has_only_valid_characters(char **map);
 void	player_coordinates(char **map, t_cub *cub);
 // src/parser/map_validator.c
-int		is_map_closed(t_cub *cub);
+int		is_map_valid(t_cub *cub);
 
 // src/validator/
 // src/validator/valid_format.c

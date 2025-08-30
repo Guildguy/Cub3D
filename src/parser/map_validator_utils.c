@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 20:17:54 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/28 13:30:09 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 17:10:58 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	flood_fill(char **map_copy, t_cub *cub, int y, int x)
 {
-	if (y < 0 || y >= cub->map_set.map_height || x < 0
-		|| x >= cub->map_set.map_width)
+	if (y < 0 || y >= cub->map_set.map_height)
+		return (0);
+	if (x < 0 || x >= (int)ft_strlen(map_copy[y]))
 		return (0);
 	if (map_copy[y][x] == ' ')
 		return (0);

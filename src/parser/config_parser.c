@@ -6,13 +6,13 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 11:32:14 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 13:51:01 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 17:53:56 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	validate_rgb_strings(char **s_rgb, t_cub *cub)
+static int	validate_rgb_strings(char **s_rgb)
 {
 	int	i;
 	int	j;
@@ -21,19 +21,14 @@ static void	validate_rgb_strings(char **s_rgb, t_cub *cub)
 	while (s_rgb && s_rgb[j])
 		j++;
 	if (j != 3)
-	{
-		free_array(s_rgb);
-		error_handler(cub, "Error\nInvalid color format (must be R,G,B)\n");
-	}
+		return (0);
 	i = -1;
 	while (++i < 3)
 	{
 		if (!is_digit_string(s_rgb[i]))
-		{
-			free_array(s_rgb);
-			error_handler(cub, "Error\nnon-numeric color value\n");
-		}
+			return (0);
 	}
+	return (1);
 }
 
 int	get_rgb_color(char *rgb_string, t_cub *cub)
@@ -44,7 +39,11 @@ int	get_rgb_color(char *rgb_string, t_cub *cub)
 
 	trim_trailing_whitespace(rgb_string);
 	s_rgb = ft_split(rgb_string, ',');
-	validate_rgb_strings(s_rgb, cub);
+	if (validate_rgb_strings(s_rgb) == 0)
+	{
+		free_array(s_rgb);
+		return (-1);
+	}
 	i = -1;
 	while (++i < 3)
 	{
@@ -52,14 +51,14 @@ int	get_rgb_color(char *rgb_string, t_cub *cub)
 		if (rgb[i] < 0 || rgb[i] > 255)
 		{
 			free_array(s_rgb);
-			error_handler(cub, "Error\nColor value out of range (0-255)\n");
+			return (-1);
 		}
 	}
 	free_array(s_rgb);
 	return ((rgb[0] << 16) | (rgb[1] << 8) | rgb[2]);
 }
 
-void	parse_color(char *line, t_cub *cub)
+int	parse_color(char *line, t_cub *cub)
 {
 	int	i;
 	int	color;
@@ -68,42 +67,47 @@ void	parse_color(char *line, t_cub *cub)
 	while (ft_isspace(line[i]))
 		i++;
 	color = get_rgb_color(&line[i], cub);
+	if (color == -1)
+		return (0);
 	if (!ft_strncmp(line, "F ", 2))
 	{
 		if (cub->map_set.floor_color != -1)
-			error_handler(cub, "Error\nFloor color defined multiple times\n");
+			return (0);
 		cub->map_set.floor_color = color;
 	}
 	else if (!ft_strncmp(line, "C ", 2))
 	{
 		if (cub->map_set.ceiling_color != -1)
-			error_handler(cub, "Error\nCeiling color defined multiple times\n");
+			return (0);
 		cub->map_set.ceiling_color = color;
 	}
+	return (1);
 }
 
-static void	set_texture_path(char **path_to_set, char *path, t_cub *cub)
+static int	set_texture_path(char **path_to_set, char *path, t_cub *cub)
 {
 	if (*path_to_set != NULL)
-		error_handler(cub, "Error\nTexture defined multiple times\n");
+		return (0);
 	*path_to_set = ft_strdup(path);
 	if (!*path_to_set)
-		error_handler(cub, "Error\nMalloc failed for texture path\n");
+		return (0);
+	return (1);
 }
 
-void	parse_texture(char *line, t_cub *cub)
+int	parse_texture(char *line, t_cub *cub)
 {
 	int	i;
 
 	i = 3;
-	while (line[i] == ' ')
+	while (ft_isspace(line[i]))
 		i++;
 	if (!ft_strncmp(line, "NO ", 3))
-		set_texture_path(&cub->map_set.no_path, &line[i], cub);
+		return (set_texture_path(&cub->map_set.no_path, &line[i], cub));
 	else if (!ft_strncmp(line, "SO ", 3))
-		set_texture_path(&cub->map_set.so_path, &line[i], cub);
+		return (set_texture_path(&cub->map_set.so_path, &line[i], cub));
 	else if (!ft_strncmp(line, "WE ", 3))
-		set_texture_path(&cub->map_set.we_path, &line[i], cub);
+		return (set_texture_path(&cub->map_set.we_path, &line[i], cub));
 	else if (!ft_strncmp(line, "EA ", 3))
-		set_texture_path(&cub->map_set.ea_path, &line[i], cub);
+		return (set_texture_path(&cub->map_set.ea_path, &line[i], cub));
+	return (1);
 }

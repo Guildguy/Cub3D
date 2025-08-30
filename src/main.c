@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:59:25 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/28 20:45:39 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 17:20:30 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ int	main(int c, char **v)
 		error_handler(&cub, "Error: Invalid arguments\n");
 	if (main_parser(v[1], &cub) == 0)
 		error_handler(&cub, "Error: Failed to parse map file\n");
+	if (cub.map == NULL)
+		error_handler(&cub, "Error: Map data not found in file\n");
 	if (!has_only_valid_characters(cub.map))
 		error_handler(&cub, "Error: invalid characters\n");
-	if (!is_map_closed(&cub))
+	if (!is_map_valid(&cub))
 		error_handler(&cub, "Error: Map is not enclosed by walls\n");
 	init_player(&cub);
 	cub_init(&cub);
