@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 11:32:14 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 13:20:59 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 13:51:01 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	validate_rgb_strings(char **s_rgb, t_cub *cub)
 	if (j != 3)
 	{
 		free_array(s_rgb);
-		error_handler(cub, "Error: Invalid color format (must be R,G,B)\n");
+		error_handler(cub, "Error\nInvalid color format (must be R,G,B)\n");
 	}
 	i = -1;
 	while (++i < 3)
@@ -31,7 +31,7 @@ static void	validate_rgb_strings(char **s_rgb, t_cub *cub)
 		if (!is_digit_string(s_rgb[i]))
 		{
 			free_array(s_rgb);
-			error_handler(cub, "Error: non-numeric color value\n");
+			error_handler(cub, "Error\nnon-numeric color value\n");
 		}
 	}
 }
@@ -52,7 +52,7 @@ int	get_rgb_color(char *rgb_string, t_cub *cub)
 		if (rgb[i] < 0 || rgb[i] > 255)
 		{
 			free_array(s_rgb);
-			error_handler(cub, "Error: Color value out of range (0-255)\n");
+			error_handler(cub, "Error\nColor value out of range (0-255)\n");
 		}
 	}
 	free_array(s_rgb);
@@ -71,13 +71,13 @@ void	parse_color(char *line, t_cub *cub)
 	if (!ft_strncmp(line, "F ", 2))
 	{
 		if (cub->map_set.floor_color != -1)
-			error_handler(cub, "Error: Floor color defined multiple times\n");
+			error_handler(cub, "Error\nFloor color defined multiple times\n");
 		cub->map_set.floor_color = color;
 	}
 	else if (!ft_strncmp(line, "C ", 2))
 	{
 		if (cub->map_set.ceiling_color != -1)
-			error_handler(cub, "Error: Ceiling color defined multiple times\n");
+			error_handler(cub, "Error\nCeiling color defined multiple times\n");
 		cub->map_set.ceiling_color = color;
 	}
 }
@@ -85,10 +85,10 @@ void	parse_color(char *line, t_cub *cub)
 static void	set_texture_path(char **path_to_set, char *path, t_cub *cub)
 {
 	if (*path_to_set != NULL)
-		error_handler(cub, "Error: Texture defined multiple times\n");
+		error_handler(cub, "Error\nTexture defined multiple times\n");
 	*path_to_set = ft_strdup(path);
 	if (!*path_to_set)
-		error_handler(cub, "Error: Malloc failed for texture path\n");
+		error_handler(cub, "Error\nMalloc failed for texture path\n");
 }
 
 void	parse_texture(char *line, t_cub *cub)

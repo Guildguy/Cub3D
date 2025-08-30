@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:17:19 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 13:23:37 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/30 13:51:01 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static int	process_line(char *line, t_cub *cub, int fd)
 	else if (line[0] != '\n')
 	{
 		if (all_configs_set(cub) == 0)
-			error_handler(cub, "Error: Missing configuration before map\n");
+			error_handler(cub, "Error\nMissing configuration before map\n");
 		if (is_valid_upper_boundary(line) == 0)
-			error_handler(cub, "Error: Invalid content\n");
+			error_handler(cub, "Error\nInvalid content\n");
 		parse_map_grid(line, cub, fd);
 		return (1);
 	}
