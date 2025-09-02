@@ -31,6 +31,7 @@ int	main(int c, char **v)
 		error_handler(&cub, "Error: Map is not enclosed by walls\n");
 	init_player(&cub);
 	cub_init(&cub);
+	load_all_textures(&cub);
 	mlx_loop_hook(cub.mlx_connection, render, &cub);
 	mlx_loop(cub.mlx_connection);
 	return (0);
