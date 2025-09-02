@@ -12,6 +12,15 @@
 
 #include "cub3d.h"
 
+int	get_pixel_color(t_img *texture, int x, int y)
+{
+	char	*pxl_address;
+
+    pxl_address = texture->pxl_ptr + (y * texture->l_len \
+	+ x * (texture->bits_per_pxl / 8));
+    return (*(unsigned int *)pxl_address);
+}
+
 void	put_pxl_in_img(t_img *img, int x, int y, int color)
 {
 	char	*pxl_address;
