@@ -37,8 +37,8 @@ typedef struct s_cub
 	void		*mlx_window;
 	t_img		img;
 	t_map		map_set;
-	t_player	player;
 	char		**map;
+	t_player	player;
 	t_img		north_texture;
 	t_img		south_texture;
 	t_img		west_texture;
