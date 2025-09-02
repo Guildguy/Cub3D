@@ -30,30 +30,60 @@ static t_wall	calculate_wall_dimension(t_ray *ray_result)
 	return (wall);
 }
 
-void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray)
+static t_img	*get_wall_textures(t_cub *cub, t_ray *ray)
 {
-	t_wall	wall;
-	int		vertical_slice;
-	int		color;
-
-	wall = calculate_wall_dimension(ray);
 	if (ray->side == VERTICAL_WALL)
 	{
 		if (ray->ray_dir_x > AXYS_ORIGIN)
-			color = create_rgb(0, 144, 238, 144);
+			return (&cub->west_texture);
 		else
-			color = create_rgb(0, 46, 60, 28);
+			return (&cub->east_texture);
 	}
 	else
 	{
 		if (ray->ray_dir_y > AXYS_ORIGIN)
-			color = create_rgb(0, 46, 27, 87);
+			return (&cub->north_texture);
 		else
-			color = create_rgb(0, 138, 3, 2);
+			return (&cub->south_texture);
 	}
+}
+
+static int	get_texture_coordinates(t_cub *cub, t_ray *ray, t_wall *wall)
+{
+	int		texture;
+	double	wallx;
+
+	if (ray->side == VERTICAL_WALL)
+		wallx = cub->player.pos_y + wall->wall_dist * ray->ray_dir_y;
+	else 
+		wallx = cub->player.pos_x + wall->wall_dist * ray->ray_dir_x;
+	wallx -= floor(wallx);
+	texture = (int)(wallx * (double)TEXTURE_WIDTH);
+	if ((ray->side == VERTICAL_WALL && ray->ray_dir_x < 0) || \
+	(ray->side == HORIZONTAL_WALL && ray->ray_dir_y > 0))
+		texture = TEXTURE_HEIGHT - texture - 1;
+	return (texture);
+}
+
+void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray)
+{
+	t_wall	wall;
+	t_img	*textures;
+	int		coordinates_x;
+	int		coordinates_y;
+	int		y_to_texture;
+	int		vertical_slice;
+	int		color;
+
+	wall = calculate_wall_dimension(ray);
+	textures = get_wall_textures(cub, ray);
+	coordinates_x = get_texture_coordinates(cub, ray, &wall);
 	vertical_slice = wall.draw_start;
-	while (vertical_slice < wall.draw_end)
+	while (vertical_slice <= wall.draw_end)
 	{
+		y_to_texture = vertical_slice * 256 - HEIGHT * 128 + wall.height * 128;
+		coordinates_y = ((y_to_texture * TEXTURE_HEIGHT) / wall.height) / 256;
+		color = get_pixel_color(textures, coordinates_x, coordinates_y);
 		put_pxl_in_img(&cub->img, horizontal_slice, vertical_slice, color);
 		vertical_slice++;
 	}
