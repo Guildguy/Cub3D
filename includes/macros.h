@@ -25,10 +25,13 @@
 # define NO_HIT 0
 
 /*     WALL     */
-# define WALL 49
+# define WALL '1'
 # define VERTICAL_WALL 0
+# define HORIZONTAL_WALL 1
 # define NO_SO_WALL 1
 # define ES_WE_WALL 0
+# define TEXTURE_WIDTH 64
+# define TEXTURE_HEIGHT 64
 
 /*     AXYS    */
 # define AXYS_ORIGIN 0
@@ -40,7 +43,7 @@
 # define DOWN_STEP 1
 
 /*    MOVE    */
-# define R_SPEED 0.1
-# define M_SPEED 0.1
+# define R_SPEED 0.01
+# define M_SPEED 0.01
 
 #endif

@@ -31,6 +31,11 @@
 # include "raycasting.h"
 
 /* Struct */
+
+typedef struct s_img	t_img;
+typedef struct s_player	t_player;
+typedef struct s_map	t_map;
+
 typedef struct s_cub
 {
 	void		*mlx_connection;

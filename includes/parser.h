@@ -14,6 +14,9 @@
 # define PARSER_H
 
 /* Structs */
+
+typedef struct s_cub	t_cub;
+
 typedef struct s_img
 {
 	void	*img_ptr;
@@ -43,12 +46,11 @@ typedef struct s_line
 	struct s_line	*next;
 }				t_line;
 
-typedef struct s_cub	t_cub;
-
 /* Functions */
 // src/loader/
 // src/loader/load_images.c
 void	load_texture(t_cub *cub, t_img *texture_img, char *path);
+void	load_all_textures(t_cub *cub);
 
 // src/parser/
 // src/parser/config_parser.c
