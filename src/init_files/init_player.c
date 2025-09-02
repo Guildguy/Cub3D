@@ -38,24 +38,8 @@ static void	set_player_direction(t_cub *cub, char direction)
 
 void	init_player(t_cub *cub)
 {
-	int	y;
-	int	x;
-
-	y = 0;
-	while (cub->map[y])
-	{
-		x = 0;
-		while (cub->map[y][x])
-		{
-			if (ft_strchr("NSEW", cub->map[y][x]))
-			{
-				cub->player.pos_x = x + 0.5;
-				cub->player.pos_y = y + 0.5;
-				set_player_direction(cub, cub->map[y][x]);
-				return ;
-			}
-			x++;
-		}
-		y++;
-	}
+	cub->player.pos_x = cub->map_set.x + 0.5;
+	cub->player.pos_y = cub->map_set.y + 0.5;
+	set_player_direction(cub, cub->map[(int)cub->player.pos_y]\
+	[(int)cub->player.pos_x]);
 }
