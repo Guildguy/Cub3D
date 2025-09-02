@@ -28,10 +28,10 @@ void	load_texture(t_cub *cub, t_img *texture_img, char *path)
 		error_handler(cub, "Error: Failed to get texture data address.\n");
 }
 
-// void	cub_init(t_cub *cub)
-// {
-// 	load_texture(cub, &cub->north_texture, cub->map_set.no_path);
-// 	load_texture(cub, &cub->south_texture, cub->map_set.so_path);
-// 	load_texture(cub, &cub->west_texture, cub->map_set.we_path);
-// 	load_texture(cub, &cub->east_texture, cub->map_set.ea_path);
-// }
+void	load_all_textures(t_cub *cub)
+{
+	load_texture(cub, &cub->north_texture, cub->map_set.no_path);
+	load_texture(cub, &cub->south_texture, cub->map_set.so_path);
+	load_texture(cub, &cub->west_texture, cub->map_set.we_path);
+	load_texture(cub, &cub->east_texture, cub->map_set.ea_path);
+}
