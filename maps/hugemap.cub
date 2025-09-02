@@ -1,7 +1,7 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO ./textures/mold_wall64.xpm
+SO ./textures/brick_wall64.xpm
+WE ./textures/candle_wall64.xpm
+EA ./textures/axe_wall64.xpm
 
 F 220,100,0
 C 0,0,255
