@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 12:12:14 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 16:29:45 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/31 15:22:35 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_line	*read_map_to_list(char *line, t_cub *cub, int fd)
 		if (!temp)
 		{
 			free_list(map_list);
-			error_handler(cub, "Error: Malloc failed during map parsing\n");
+			error_handler(cub, "Error\n Malloc failed during map parsing\n");
 		}
 		add_node_back(&map_list, temp);
 		line = get_next_line(fd);
@@ -73,7 +73,7 @@ void	parse_map_grid(char *line, t_cub *cub, int fd)
 	if (!cub->map)
 	{
 		free_list(map_list);
-		error_handler(cub, "Error: Malloc failed during map conversion\n");
+		error_handler(cub, "Error\n Malloc failed during map conversion\n");
 	}
 	free_list(map_list);
 }

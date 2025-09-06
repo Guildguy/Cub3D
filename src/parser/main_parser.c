@@ -6,19 +6,14 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:17:19 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 18:00:56 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:36:25 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	process_line(char *line, t_cub *cub, int fd)
+static int	dispatch_line(char *line, char *trim_line, t_cub *cub, int fd)
 {
-	char	*trim_line;
-
-	trim_line = line;
-	while (ft_isspace(*trim_line))
-		trim_line++;
 	if (!ft_strncmp(trim_line, "NO ", 3) || !ft_strncmp(trim_line, "SO ", 3)
 		|| !ft_strncmp(trim_line, "WE ", 3) || !ft_strncmp(trim_line, "EA ", 3))
 	{
@@ -30,7 +25,7 @@ static int	process_line(char *line, t_cub *cub, int fd)
 		if (parse_color(trim_line, cub) == 0)
 			return (0);
 	}
-	else if (trim_line[0] != '\n' && trim_line[0] != '\0')
+	else
 	{
 		if (all_configs_set(cub) == 0)
 			return (0);
@@ -38,6 +33,18 @@ static int	process_line(char *line, t_cub *cub, int fd)
 		return (1);
 	}
 	return (2);
+}
+
+static int	process_line(char *line, t_cub *cub, int fd)
+{
+	char	*trimmed_line;
+
+	trimmed_line = line;
+	while (ft_isspace(*trimmed_line))
+		trimmed_line++;
+	if (trimmed_line[0] == '\0' || trimmed_line[0] == '\n')
+		return (2);
+	return (dispatch_line(line, trimmed_line, cub, fd));
 }
 
 int	main_parser(char *filename, t_cub *cub)
@@ -64,5 +71,63 @@ int	main_parser(char *filename, t_cub *cub)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	if (!all_configs_set(cub) || !cub->map)
+		return (0);
 	return (1);
 }
+
+// static int	process_line(char *line, t_cub *cub, int fd)
+// {
+// 	char	*trim_line;
+
+// 	trim_line = line;
+// 	while (ft_isspace(*trim_line))
+// 		trim_line++;
+// 	if (!ft_strncmp(trim_line, "NO ", 3) || !ft_strncmp(trim_line, "SO ", 3)
+// 		|| !ft_strncmp(trim_line, "WE ", 3) || !ft_strncmp(trim_line, "EA ", 3))
+// 	{
+// 		if (parse_texture(trim_line, cub) == 0)
+// 			return (0);
+// 	}
+// 	else if (!ft_strncmp(trim_line, "F ", 2) || !ft_strncmp(trim_line, "C ", 2))
+// 	{
+// 		if (parse_color(trim_line, cub) == 0)
+// 			return (0);
+// 	}
+// 	else if (trim_line[0] != '\n' && trim_line[0] != '\0')
+// 	{
+// 		if (all_configs_set(cub) == 0)
+// 			return (0);
+// 		parse_map_grid(line, cub, fd);
+// 		free(line);
+// 		return (1);
+// 	}
+// 	return (2);
+// }
+
+// int	main_parser(char *filename, t_cub *cub)
+// {
+// 	int		fd;
+// 	char	*line;
+// 	int		status;
+
+// 	fd = open(filename, O_RDONLY);
+// 	if (fd < 0)
+// 		return (0);
+// 	line = get_next_line(fd);
+// 	while (line)
+// 	{
+// 		status = process_line(line, cub, fd);
+// 		if (status == 1)
+// 			break ;
+// 		if (status == 0)
+// 		{
+// 			free(line);
+// 			return (0);
+// 		}
+// 		free(line);
+// 		line = get_next_line(fd);
+// 	}
+// 	close(fd);
+// 	return (1);
+// }
