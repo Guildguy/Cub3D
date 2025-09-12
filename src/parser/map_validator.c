@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:33:17 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 17:20:38 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/12 18:44:07 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	**init_validation(t_cub *cub)
 	player_coordinates(cub->map, cub);
 	map_copy = duplicate_map(cub->map);
 	if (!map_copy)
-		error_handler(cub, "Error: Malloc failed for map copy\n");
+		error_handler(cub, "Error\nMalloc failed for map copy\n");
 	return (map_copy);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:20:23 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/29 23:20:25 by fleite-j         ###   ########.fr       */
+/*   Updated: 2025/09/12 18:44:07 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	err_exit(t_cub *cub)
 {
-	ft_putstr_fd("ERROR: failed to init MLX", STDERR_FILENO);
+	ft_putstr_fd("Error\nfailed to init MLX", STDERR_FILENO);
 	if (cub->img.img_ptr)
 		mlx_destroy_image(cub->mlx_connection, cub->img.img_ptr);
 	if (cub->mlx_window)

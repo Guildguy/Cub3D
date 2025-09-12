@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:18:31 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/09/12 17:46:03 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/12 18:27:10 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ static t_img	*get_wall_textures(t_cub *cub, t_ray *ray)
 	if (ray->side == VERTICAL_WALL)
 	{
 		if (ray->ray_dir_x > AXYS_ORIGIN)
-			return (&cub->west_texture);
-		else
 			return (&cub->east_texture);
+		else
+			return (&cub->west_texture);
 	}
 	else
 	{
 		if (ray->ray_dir_y > AXYS_ORIGIN)
-			return (&cub->north_texture);
-		else
 			return (&cub->south_texture);
+		else
+			return (&cub->north_texture);
 	}
 }
 

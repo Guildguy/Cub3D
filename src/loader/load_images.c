@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 11:28:23 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/09/12 17:34:31 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/12 18:44:07 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	load_texture(t_cub *cub, t_img *texture_img, char *path)
 	texture_img->img_ptr = mlx_xpm_file_to_image(cub->mlx_connection,
 			path, &width, &height);
 	if (!texture_img->img_ptr)
-		error_handler(cub, "Error: Failed to load texture image.\n");
+		error_handler(cub, "Error\nFailed to load texture image.\n");
 	texture_img->pxl_ptr = mlx_get_data_addr(texture_img->img_ptr,
 			&texture_img->bits_per_pxl, &texture_img->l_len,
 			&texture_img->endian);
 	if (!texture_img->pxl_ptr)
-		error_handler(cub, "Error: Failed to get texture data address.\n");
+		error_handler(cub, "Error\nFailed to get texture data address.\n");
 }
 
 void	load_all_textures(t_cub *cub)

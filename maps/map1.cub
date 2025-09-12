@@ -1,10 +1,27 @@
+
+F 255,0,0
+
 NO ./textures/axe_wall64.xpm
+
+
 SO ./textures/brick_wall64.xpm
-WE ./textures/candle_wall64.xpm
-EA ./textures/mold_wall64.xpm
-F 220,100,1
-C 0,0,255
-        
+
+
+C                 0,0,0
+
+
+
+
+WE                          ./textures/candle_wall64.xpm
+
+
+
+EA                            ./textures/mold_wall64.xpm
+   
+
+EA                            ./textures/mold_wall64.xpm
+
+
 11111111111111111
 10000000000000001
 10100000100000001
