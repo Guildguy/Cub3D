@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:17:36 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/29 23:17:38 by fleite-j         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:35:26 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	get_pixel_color(t_img *texture, int x, int y)
 {
 	char	*pxl_address;
 
-    pxl_address = texture->pxl_ptr + (y * texture->l_len \
+	pxl_address = texture->pxl_ptr + (y * texture->l_len \
 	+ x * (texture->bits_per_pxl / 8));
-    return (*(unsigned int *)pxl_address);
+	return (*(unsigned int *)pxl_address);
 }
 
 void	put_pxl_in_img(t_img *img, int x, int y, int color)

@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 11:51:36 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 16:33:05 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:30:57 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void	free_array(char **array)
 
 void	cleanup(t_cub *cub)
 {
+	if (cub->north_texture.img_ptr)
+		mlx_destroy_image(cub->mlx_connection, cub->north_texture.img_ptr);
+	if (cub->south_texture.img_ptr)
+		mlx_destroy_image(cub->mlx_connection, cub->south_texture.img_ptr);
+	if (cub->west_texture.img_ptr)
+		mlx_destroy_image(cub->mlx_connection, cub->west_texture.img_ptr);
+	if (cub->east_texture.img_ptr)
+		mlx_destroy_image(cub->mlx_connection, cub->east_texture.img_ptr);
 	if (cub->img.img_ptr)
 		mlx_destroy_image(cub->mlx_connection, cub->img.img_ptr);
 	if (cub->mlx_window)

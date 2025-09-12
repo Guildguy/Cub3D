@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 11:32:14 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/30 17:53:56 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:28:40 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ static int	set_texture_path(char **path_to_set, char *path)
 {
 	if (*path_to_set != NULL)
 		return (0);
+	trim_trailing_whitespace(path);
 	*path_to_set = ft_strdup(path);
 	if (!*path_to_set)
 		return (0);

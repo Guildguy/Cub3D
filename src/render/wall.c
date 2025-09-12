@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:18:31 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/08/29 23:18:32 by fleite-j         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:36:14 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	get_texture_coordinates(t_cub *cub, t_ray *ray, t_wall *wall)
 
 	if (ray->side == VERTICAL_WALL)
 		wallx = cub->player.pos_y + wall->wall_dist * ray->ray_dir_y;
-	else 
+	else
 		wallx = cub->player.pos_x + wall->wall_dist * ray->ray_dir_x;
 	wallx -= floor(wallx);
 	texture = (int)(wallx * (double)TEXTURE_WIDTH);

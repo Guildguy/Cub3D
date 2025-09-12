@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 11:28:23 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/08/29 11:33:39 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:28:27 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	load_texture(t_cub *cub, t_img *texture_img, char *path)
 {
 	int	width;
 	int	height;
+
+	width = 64;
+	height = 64;
 
 	texture_img->img_ptr = mlx_xpm_file_to_image(cub->mlx_connection,
 			path, &width, &height);
