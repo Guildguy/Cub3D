@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 11:51:36 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/09/11 16:30:57 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:38:51 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_array(char **array)
 	free(array);
 }
 
-void	cleanup(t_cub *cub)
+static void	destroy_mlx_images(t_cub *cub)
 {
 	if (cub->north_texture.img_ptr)
 		mlx_destroy_image(cub->mlx_connection, cub->north_texture.img_ptr);
@@ -39,13 +39,10 @@ void	cleanup(t_cub *cub)
 		mlx_destroy_image(cub->mlx_connection, cub->east_texture.img_ptr);
 	if (cub->img.img_ptr)
 		mlx_destroy_image(cub->mlx_connection, cub->img.img_ptr);
-	if (cub->mlx_window)
-		mlx_destroy_window(cub->mlx_connection, cub->mlx_window);
-	if (cub->mlx_connection)
-	{
-		mlx_destroy_display(cub->mlx_connection);
-		free(cub->mlx_connection);
-	}
+}
+
+static void	free_map_data(t_cub *cub)
+{
 	if (cub->map_set.no_path)
 		free(cub->map_set.no_path);
 	if (cub->map_set.so_path)
@@ -56,6 +53,19 @@ void	cleanup(t_cub *cub)
 		free(cub->map_set.ea_path);
 	if (cub->map)
 		free_array(cub->map);
+}
+
+void	cleanup(t_cub *cub)
+{
+	free_map_data(cub);
+	if (cub->mlx_connection)
+	{
+		destroy_mlx_images(cub);
+		if (cub->mlx_window)
+			mlx_destroy_window(cub->mlx_connection, cub->mlx_window);
+		mlx_destroy_display(cub->mlx_connection);
+		free(cub->mlx_connection);
+	}
 }
 
 int	error_handler(t_cub *cub, char *error_message)

@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 23:18:31 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/09/11 16:36:14 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:46:03 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,24 @@ static int	get_texture_coordinates(t_cub *cub, t_ray *ray, t_wall *wall)
 	return (texture);
 }
 
-void	draw_wall(t_cub *cub, int horizontal_slice, t_ray *ray)
+void	draw_wall(t_cub *cub, int h_slice, t_ray *ray)
 {
 	t_wall	wall;
-	t_img	*textures;
-	int		coordinates_x;
-	int		coordinates_y;
-	int		y_to_texture;
-	int		vertical_slice;
-	int		color;
+	t_img	*texture;
+	int		tex_x;
+	int		tex_y;
+	int		v_slice;
 
 	wall = calculate_wall_dimension(ray);
-	textures = get_wall_textures(cub, ray);
-	coordinates_x = get_texture_coordinates(cub, ray, &wall);
-	vertical_slice = wall.draw_start;
-	while (vertical_slice <= wall.draw_end)
+	texture = get_wall_textures(cub, ray);
+	tex_x = get_texture_coordinates(cub, ray, &wall);
+	v_slice = wall.draw_start;
+	while (v_slice <= wall.draw_end)
 	{
-		y_to_texture = vertical_slice * 256 - HEIGHT * 128 + wall.height * 128;
-		coordinates_y = ((y_to_texture * TEXTURE_HEIGHT) / wall.height) / 256;
-		color = get_pixel_color(textures, coordinates_x, coordinates_y);
-		put_pxl_in_img(&cub->img, horizontal_slice, vertical_slice, color);
-		vertical_slice++;
+		tex_y = (((v_slice * 256 - HEIGHT * 128 + wall.height * 128)
+					* TEXTURE_HEIGHT) / wall.height) / 256;
+		put_pxl_in_img(&cub->img, h_slice, v_slice,
+			get_pixel_color(texture, tex_x, tex_y));
+		v_slice++;
 	}
 }
