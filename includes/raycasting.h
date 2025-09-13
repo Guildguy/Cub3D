@@ -26,6 +26,17 @@ typedef struct s_wall
 	int		draw_end;
 }				t_wall;
 
+typedef struct s_key_event
+{
+	bool	w;
+	bool	a;
+	bool	s;
+	bool	d;
+	bool	l_arrow;
+	bool	r_arrow;
+}				t_key_event;
+
+
 typedef struct s_player
 {
 	double	dir_y;

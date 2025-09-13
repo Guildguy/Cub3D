@@ -32,9 +32,10 @@
 
 /* Struct */
 
-typedef struct s_img	t_img;
-typedef struct s_player	t_player;
-typedef struct s_map	t_map;
+typedef struct s_img		t_img;
+typedef struct s_player		t_player;
+typedef struct s_map		t_map;
+typedef struct s_key_event	t_key_event;
 
 typedef struct s_cub
 {
@@ -43,6 +44,7 @@ typedef struct s_cub
 	t_img		img;
 	t_map		map_set;
 	char		**map;
+	t_key_event	keys;
 	t_player	player;
 	t_img		north_texture;
 	t_img		south_texture;
