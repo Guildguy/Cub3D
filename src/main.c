@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:59:25 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/09/12 18:44:07 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/09/13 15:46:07 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	main(int c, char **v)
 	if (cub.map == NULL)
 		error_handler(&cub, "Error\nMap data not found in file\n");
 	if (!has_only_valid_characters(cub.map))
-		error_handler(&cub, "Error\ninvalid characters\n");
+		error_handler(&cub, "Error\ninvalid or missing character\n");
 	if (!is_map_valid(&cub))
-		error_handler(&cub, "Error\nMap is not enclosed by walls\n");
+		error_handler(&cub, "Error\nMap is invalid\n");
 	init_player(&cub);
 	cub_init(&cub);
 	load_all_textures(&cub);
