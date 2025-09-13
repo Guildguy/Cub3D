@@ -32,7 +32,12 @@ static void	events_init(t_cub *cub)
 	mlx_hook(cub->mlx_window,
 		KeyPress,
 		KeyPressMask,
-		key_handler,
+		key_press_handler,
+		cub);
+	mlx_hook(cub->mlx_window,
+		KeyRelease,
+		KeyReleaseMask,
+		key_release_handler,
 		cub);
 	mlx_hook(cub->mlx_window,
 		DestroyNotify,

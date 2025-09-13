@@ -55,6 +55,7 @@ int	render(t_cub *cub)
 {
 	int	x;
 
+	exec_key_event(cub);
 	draw_background(cub);
 	x = 0;
 	while (x < WIDTH)

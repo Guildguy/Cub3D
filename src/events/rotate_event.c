@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-static void	rotate_player(t_cub *cub, double direction)
+void	rotate_player(t_cub *cub, double direction)
 {
 	double	angle;
 	double	old_dir_x;
@@ -29,12 +29,4 @@ static void	rotate_player(t_cub *cub, double direction)
 	* cos(angle) - cub->player.cam_plane_y * sin(angle);
 	cub->player.cam_plane_y = old_plane_x * sin(angle) \
 	+ cub->player.cam_plane_y * cos(angle);
-}
-
-void	rotation_handler(int keysym, t_cub *cub)
-{
-	if (keysym == XK_Right)
-		rotate_player(cub, 1.0);
-	else if (keysym == XK_Left)
-		rotate_player(cub, -1.0);
 }

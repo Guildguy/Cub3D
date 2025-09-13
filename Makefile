@@ -25,7 +25,7 @@ SRCS =  src/cleanup/cleanup.c \
 		src/parser/map_parser.c src/parser/map_validator_utils.c src/parser/map_validator.c \
 		src/parser/config_utils.c \
 		src/raycasting/raycasting.c \
-		src/render/color.c src/render/render.c src/render/wall.c \
+		src/render/render.c src/render/wall.c \
 		src/validator/valid_format.c \
 		src/main.c
 

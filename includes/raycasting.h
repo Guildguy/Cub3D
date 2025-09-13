@@ -36,7 +36,6 @@ typedef struct s_key_event
 	bool	r_arrow;
 }				t_key_event;
 
-
 typedef struct s_player
 {
 	double	dir_y;

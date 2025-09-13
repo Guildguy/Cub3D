@@ -43,13 +43,17 @@ static char	**convert_list_to_array(t_line *list, t_cub *cub)
 	int		i;
 
 	count = count_lines(list);
+	printf("--- CONVERTENDO LISTA PARA ARRAY ---\n");
+    printf("Número de linhas contadas na lista: %d\n", count);
 	array = malloc(sizeof(char *) * (count + 1));
 	if (!array)
 		return (NULL);
+	 printf("Memória alocada para %d ponteiros.\n", count + 1);
 	temp = list;
 	i = 0;
 	while (temp)
 	{
+		printf("Copiando linha %d: [%s]\n", i, temp->current);
 		array[i] = ft_strdup(temp->current);
 		if (!array[i])
 		{
@@ -61,6 +65,8 @@ static char	**convert_list_to_array(t_line *list, t_cub *cub)
 	}
 	cub->map_set.map_height = i;
 	array[i] = NULL;
+	printf("Terminador NULL colocado no índice: %d\n", i);
+    printf("------------------------------------\n");
 	return (array);
 }
 

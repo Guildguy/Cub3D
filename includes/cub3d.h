@@ -64,11 +64,14 @@ int		error_handler(t_cub *cub, char *error_message);
 // src/events/close_event.c
 int		close_handler(t_cub *cub);
 // src/events/rotate_event.c
-void	rotation_handler(int keysym, t_cub *cub);
+void	rotate_player(t_cub *cub, double direction);
 // src/events/movement_event.c
-void	movement_handler(int keysym, t_cub *cub);
+void	forward_backward_move(t_cub *cub, double direction);
+void	left_right_move(t_cub *cub, double direction);
 // src/events/events.c
-int		key_handler(int keysym, t_cub *cub);
+int		key_press_handler(int keysym, t_cub *cub);
+int		key_release_handler(int keysym, t_cub *cub);
+void	exec_key_event(t_cub *cub);
 
 // src/init_files/
 // src/init_files/init_player.c
