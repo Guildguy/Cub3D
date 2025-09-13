@@ -1,7 +1,7 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO ./textures/monaliza_pxl_64.xpm
+SO ./textures/monettwife_pxl_64.xpm
+WE ./textures/noite_pxl_64.xpm
+EA ./textures/ogrito_pxl_64.xpm
 
 F 220,100,1
 C 0,0,255
