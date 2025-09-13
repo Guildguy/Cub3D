@@ -1,10 +1,10 @@
-SO textures/path_to_the_south_texture
+SO ./textures/monettwife_pxl_64.xpm
 
 C 0,0,255
-NO textures/path_to_the_north_texture
-WE textures/path_to_the_west_texture
+NO ./textures/monaliza_pxl_64.xpm
+WE ./textures/noite_pxl_64.xpm
 F 220,100,1
-EA textures/path_to_the_east_texture
+EA ./textures/ogrito_pxl_64.xpm
 
 11111111111111111         1
 10000000000000001        101
