@@ -43,7 +43,10 @@
 # define DOWN_STEP 1
 
 /*    MOVE    */
-# define R_SPEED /*0.2*/0.01
-# define M_SPEED /*0.25*/0.02
+# define R_SPEED 0.009
+# define M_SPEED 0.01
+
+//# define R_SPEED 0.2
+//# define M_SPEED 0.25
 
 #endif

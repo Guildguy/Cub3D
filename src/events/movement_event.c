@@ -37,10 +37,11 @@ void	forward_backward_move(t_cub *cub, double direction)
 
 	new_y = cub->player.pos_y + cub->player.dir_y * M_SPEED * direction;
 	new_x = cub->player.pos_x + cub->player.dir_x * M_SPEED * direction;
-	if (!is_wall(cub, new_x, cub->player.pos_y))
+	if (is_wall(cub, new_x, new_y) == false)
+	{
 		cub->player.pos_x = new_x;
-	if (!is_wall(cub, cub->player.pos_x, new_y))
 		cub->player.pos_y = new_y;
+	}
 }
 
 void	left_right_move(t_cub *cub, double direction)
@@ -50,8 +51,9 @@ void	left_right_move(t_cub *cub, double direction)
 
 	new_y = cub->player.pos_y + cub->player.cam_plane_y * M_SPEED * direction;
 	new_x = cub->player.pos_x + cub->player.cam_plane_x * M_SPEED * direction;
-	if (!is_wall(cub, new_x, cub->player.pos_y))
+	if (is_wall(cub, new_x, new_y) == false)
+	{
 		cub->player.pos_x = new_x;
-	if (!is_wall(cub, cub->player.pos_x, new_y))
 		cub->player.pos_y = new_y;
+	}
 }
