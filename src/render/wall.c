@@ -37,16 +37,16 @@ static t_img	*get_wall_textures(t_cub *cub, t_ray *ray)
 	if (ray->side == VERTICAL_WALL)
 	{
 		if (ray->ray_dir_x > AXYS_ORIGIN)
-			return (&cub->east_texture);
-		else
 			return (&cub->west_texture);
+		else
+			return (&cub->east_texture);
 	}
 	else
 	{
 		if (ray->ray_dir_y > AXYS_ORIGIN)
-			return (&cub->south_texture);
-		else
 			return (&cub->north_texture);
+		else
+			return (&cub->south_texture);
 	}
 }
 
