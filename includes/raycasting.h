@@ -59,8 +59,6 @@ typedef struct s_ray
 void	raycasting(t_cub *cub, int x);
 
 // src/render/
-// src/render/color.c
-int		create_rgb(int t, int r, int g, int b);
 // src/render/render.c
 int		get_pixel_color(t_img *texture, int x, int y);
 void	put_pxl_in_img(t_img *img, int x, int y, int color);

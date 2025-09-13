@@ -14,7 +14,18 @@
 
 static bool	is_wall(t_cub *cub, double x, double y)
 {
-	if (cub->map[(int)y][(int)x] == WALL)
+	int	map_x;
+	int	map_y;
+
+	map_x = (int)x;
+	map_y = (int)y;
+	if (map_y < 0 || map_y >= cub->map_set.map_height)
+		return (true);
+	if (map_x < 0 || map_x >= (int)ft_strlen(cub->map[map_y]))
+		return (true);
+	if (cub->map[map_y][map_x] == ' ')
+		return (true);
+	if (cub->map[map_y][map_x] == WALL)
 		return (true);
 	return (false);
 }

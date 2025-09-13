@@ -44,6 +44,6 @@
 
 /*    MOVE    */
 # define R_SPEED 0.06
-# define M_SPEED 0.1
+# define M_SPEED 0.15
 
 #endif
